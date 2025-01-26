@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Gaurav Negi Flutter Developer">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="gaurav_portfolio">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>gaurav_portfolio</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      #loading-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f4f4f4;
+        z-index: 9999;
+      }
+
+      #loading-bar {
+        width: 80%;
+        max-width: 400px;
+        height: 10px;
+        background-color: #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      #progress {
+        width: 0%;
+        height: 100%;
+        background-color: #151b54;
+        transition: width 0.2s ease-in-out;
+      }
+    </style>
+</head>
+<body>
+<div id="loading-container">
+  <div id="loading-bar">
+    <div id="progress"></div>
+  </div>
+</div>
+<script>
+      // Simulate loading progress
+      const progressBar = document.getElementById('progress');
+      const loadingContainer = document.getElementById('loading-container');
+
+      let progress = 0;
+      const loadingInterval = setInterval(() => {
+        if (progress >= 100) {
+          clearInterval(loadingInterval);
+          loadingContainer.style.display = 'none'; // Hide loading screen
+        } else {
+          progress += 10; // Increment progress
+          progressBar.style.width = `${progress}%`;
+        }
+      }, 200);
+
+      // Hide loading screen after Flutter initializes
+      window.addEventListener('flutter-first-frame', () => {
+        loadingContainer.style.display = 'none';
+      });
+    </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
