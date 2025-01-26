@@ -475,7 +475,7 @@ class _HomeState extends State<Home> {
                                                       ),
                                                     ),
                                                   ): Expanded(
-
+                  //new
                                                     child: Container(
                                                       width:getWidth(context),
                                                     decoration: BoxDecoration(
