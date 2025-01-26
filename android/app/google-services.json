@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "874141957516",
+    "project_id": "gaurav-portfolio-639a7",
+    "storage_bucket": "gaurav-portfolio-639a7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874141957516:android:c58a9136a44b386df6aaa9",
+        "android_client_info": {
+          "package_name": "com.gaurav.gaurav_portfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb37m4OP5TgrOOtPoycbP1Qhgqd3DkN0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
