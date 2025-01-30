@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Bio Data',
+      title: 'Portfolio',
       theme: ThemeData(
         textTheme: GoogleFonts.mondaTextTheme(),
         // This is the theme of your application.

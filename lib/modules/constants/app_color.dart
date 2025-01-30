@@ -41,4 +41,8 @@ class AppColor{
   static Color BORDER_COLOR = Color(0xFFD1DBE8);
   static Color CARD_TEXT_COLOR = Color(0xFF6B7A99);
   static Color RACE_TEXT_COLOR = Color(0xFFECF0FD);
+  static Color darkBlue = Color(0xFF001f3f);
+  static Color darkBlueShade2 = Color(0xFF003366);
+
+
 }

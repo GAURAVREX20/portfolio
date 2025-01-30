@@ -3,6 +3,7 @@ class DataModel{
   String? subtitle;
   String? content;
   String? image;
-
-  DataModel({this.title, this.content, this.subtitle, this.image});
+  String? link;
+  List<String>? images;
+  DataModel({this.title, this.content, this.subtitle, this.image, this.images, this.link});
 }

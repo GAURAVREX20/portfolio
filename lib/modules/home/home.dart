@@ -5,8 +5,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:gaurav_portfolio/global/functions.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pretty_animated_buttons/pretty_animated_buttons.dart';
+import 'package:pretty_animated_buttons/widgets/pretty_shadow_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../models/DataModel.dart';
 import '../constants/app_color.dart';
@@ -78,8 +82,65 @@ class _HomeState extends State<Home> {
       subtitle: "Slack, trello, jira",
 
     ),
+  ];
 
+  List<DataModel> projects = [
+    DataModel(
+        title: "Nerbio iTOF App",
+        image: "assets/itof/icon.png",
+        subtitle: "iTOF nerbio device is a neuromuscular blockade monitor which is used by medical professionals during surgery"
+            "to monitor neuromuscular blockage sending electric pulse through electrodes in their nerves and an accelerometer "
+            "is placed to measure their twitch."
+            " The iTOF app is to control the device like managing the modes and showing the twitch response for the doctors in form of graph and "
+            "twitch ratio. You can control the power of electric bursts and frequency etc. using this app."
+    ),
 
+    DataModel(
+        title: "State Management",
+        subtitle: "Riverpod, Provider, Getx"
+
+    ),
+    DataModel(
+      title: "IDE",
+      subtitle: "Android studio, VScode, Cursor, xcode",
+
+    ),
+    DataModel(
+      title: "Other Programming Languages",
+      subtitle: "Java, C#, PHP, node js",
+
+    ),
+
+    DataModel(
+      title: "Other Frameworks",
+      subtitle: "Laravel, codeigniter, unity",
+
+    ),
+    DataModel(
+      title: "Flames",
+      subtitle: "basics of game development using flames in flutter",
+
+    ),
+    DataModel(
+      title: "Database",
+      subtitle: "Sqf lite, Hive, mongodb",
+    ),
+
+    DataModel(
+      title: "Firebase",
+      subtitle: "Expertise in projects using firebase in flutter",
+
+    ),
+    DataModel(
+      title: "CI/CD",
+      subtitle: "git, svn, github, bitbucket, sourcetree",
+
+    ),
+    DataModel(
+      title: "Work Management Tools",
+      subtitle: "Slack, trello, jira",
+
+    ),
   ];
 
   storeData() async{
@@ -204,28 +265,34 @@ class _HomeState extends State<Home> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("Gaurav Negi",
-                                  style: GoogleFonts.monda(
-                                      color:(isScrolled)?Colors.black:Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 50
-                                  ),).animate().fadeIn(curve:Curves.easeInCubic,duration: Duration(seconds: 1,)),
-                              
-                                  Container(
-                              
-                                    child: Text("Flutter Developer", style: GoogleFonts.monda(
-                                      color:(isScrolled)?Colors.black:Colors.white,
-                                      fontSize:30,
-                              
+                                  FittedBox(
+                                    child: Text("Gaurav Negi",
+                                    style: GoogleFonts.monda(
+                                        color:(isScrolled)?Colors.black:Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 50
                                     ),).animate().fadeIn(curve:Curves.easeInCubic,duration: Duration(seconds: 1,)),
+                                  ),
+                              
+                                  FittedBox(
+                                    child: Container(
+
+                                      child: Text("Flutter Developer", style: GoogleFonts.monda(
+                                        color:(isScrolled)?Colors.black:Colors.white,
+                                        fontSize:30,
+
+                                      ),).animate().fadeIn(curve:Curves.easeInCubic,duration: Duration(seconds: 1,)),
+                                    ),
                                   ),
                               
                                   SizedBox(height: 10,),
                                   Container(
-                                    child: Text("+91-9149243123", style: TextStyle(
-                                      color: (isScrolled)?Colors.black:Colors.white,
-                                      fontSize:20,
-                                    ),).animate().fadeIn(curve:Curves.easeInCubic,duration: Duration(seconds: 1,)),
+                                    child: FittedBox(
+                                      child: Text("+91-9149243123", style: TextStyle(
+                                        color: (isScrolled)?Colors.black:Colors.white,
+                                        fontSize:20,
+                                      ),).animate().fadeIn(curve:Curves.easeInCubic,duration: Duration(seconds: 1,)),
+                                    ),
                                   ),
                               
                                   SizedBox(height: 10,),
@@ -310,8 +377,8 @@ class _HomeState extends State<Home> {
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                                 colors: [
-                                  (isScrolled)?AppColor.LIGHT_BLUE:AppColor.DARK_BLUE,
-                                  (isScrolled)?Colors.white:Colors.blueAccent
+                                  (isScrolled)?AppColor.darkBlue:AppColor.DARK_BLUE,
+                                  (isScrolled)?AppColor.DARK_BLUE:Colors.blueAccent
                                 ]
 
                             ),
@@ -324,7 +391,7 @@ class _HomeState extends State<Home> {
                           children: [
                             Text("Skills",
                               style: GoogleFonts.monda(
-                                  color:(isScrolled)?Colors.black:Colors.white,
+                                  color:(isScrolled)?Colors.white:Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 40
                               ),).animate().fadeIn(curve:Curves.easeInCubic,duration: Duration(seconds: 1,)),
@@ -410,8 +477,10 @@ class _HomeState extends State<Home> {
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                                 colors: [
-                                  (isScrolled)?AppColor.LIGHT_BLUE:AppColor.DARK_BLUE,
-                                  (isScrolled)?Colors.white:Colors.blueAccent
+                                  (isScrolled)?AppColor.darkBlue:AppColor.DARK_BLUE,
+                                  (isScrolled)?AppColor.DARK_BLUE:Colors.blueAccent
+
+
                                 ]
 
                             ),
@@ -424,7 +493,7 @@ class _HomeState extends State<Home> {
                           children: [
                             Text("Projects",
                               style: GoogleFonts.monda(
-                                  color:(isScrolled)?Colors.black:Colors.white,
+                                  color:(isScrolled)?Colors.white:Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 40
                               ),).animate().fadeIn(curve:Curves.easeInCubic,duration: Duration(seconds: 1,)),
@@ -438,12 +507,12 @@ class _HomeState extends State<Home> {
                                       physics: BouncingScrollPhysics(),
                                       shrinkWrap: true,
                                       scrollDirection: Axis.horizontal,
-                                      itemCount: data.length,
+                                      itemCount: projects.length,
                                       controller: horizontalController,
                                       itemBuilder: (context, index)=>
                                           Container(
                                             height:(getHeight(context)/2) - 100,
-                                            width: getWidth(context)*0.5,
+                                            width: (isDesktop(context))?getWidth(context)*0.5:getWidth(context)*0.8,
                                             decoration: BoxDecoration(
                               
                                               gradient: LinearGradient(
@@ -464,28 +533,49 @@ class _HomeState extends State<Home> {
                                             child: Column(
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
-                                                (data[index].image != null)?
+                                                (projects[index].image != null)?
                                                   Expanded(
+                                                    flex: 1,
 
                                                     child: Container(
                                                       width: getWidth(context),
                                                       decoration: BoxDecoration(
                                                         borderRadius: BorderRadius.circular(10),
-                                                        color: Colors.grey
+                                                        gradient:
+                                                       LinearGradient(
+                                                        begin: Alignment.topLeft,
+                                                           end: Alignment.bottomRight,
+                                                           colors: [
+                                                         AppColor.darkBlue,
+                                                         AppColor.DARK_BLUE
+                                                       ]),
+
+                                                        image: DecorationImage(
+                                                          image: AssetImage(projects[index].image!)
+                                                        )
                                                       ),
                                                     ),
                                                   ): Expanded(
+                                                  flex: 1,
                   //new
                                                     child: Container(
                                                       width:getWidth(context),
                                                     decoration: BoxDecoration(
                                                         borderRadius: BorderRadius.circular(10),
-                                                        color: Colors.grey
+                                                      gradient: LinearGradient(
+                                                          begin: Alignment.topLeft,
+                                                          end: Alignment.bottomRight,
+                                                          colors: [
+                                                            AppColor.darkBlue,
+                                                            AppColor.DARK_BLUE
+                                                          ]),
+
                                                     ),
                                                     
                                                     child: Icon(
                                                       Icons.image,
                                                       size: 100,
+                                                      color: Colors.white,
                                                       
                                                     ),
                                                                                                     ),
@@ -493,31 +583,80 @@ class _HomeState extends State<Home> {
                                                 SizedBox(height: 10,),
 
                                                 Expanded(
+                                                  flex: 2,
                                                   child: Column(
                                                     children: [
-                                                      if(data[index].title != null)
+                                                      if(projects[index].title != null)
                                                         FittedBox(
-                                                          child: Text("${data[index].title}", style: TextStyle(
+                                                          child: Text("${projects[index].title}", style: TextStyle(
                                                               color: Colors.white,
                                                               fontSize: 30
                                                           ),textAlign: TextAlign.center).animate().fadeIn(curve:Curves.easeIn,duration: Duration(seconds: 1)),
                                                         ),
-                                                      if(data[index].subtitle != null)
+                                                      if(projects[index].subtitle != null)
                                                         SizedBox(height: 10,),
-                                                      if(data[index].subtitle != null)
-                                                        Text("${data[index].subtitle}", style: TextStyle(
+                                                      if(projects[index].subtitle != null)
+                                                        Text("${projects[index].subtitle}", style: TextStyle(
+                                                            fontSize: isDesktop(context)?getHeight(context)*0.02:getHeight(context)*0.015,
                                                             color: Colors.white
                                                         ), textAlign: TextAlign.center).animate().fadeIn(curve:Curves.easeIn,duration: Duration(seconds: 1)),
-                                                      if(data[index].content != null)
+                                                      if(projects[index].content != null)
                                                         SizedBox(height: 10,),
-                                                      if(data[index].content != null)
-                                                        Text("${data[index].content}", style: TextStyle(
+                                                      if(projects[index].content != null)
+                                                        Text("${projects[index].content}", style: TextStyle(
                                                             color: Colors.white
-                                                        ), textAlign: TextAlign.center,).animate().fadeIn(curve:Curves.easeIn,duration: Duration(seconds: 1))
+                                                        ), textAlign: TextAlign.center,).animate().fadeIn(curve:Curves.easeIn,duration: Duration(seconds: 1)),
+
+
+                                                      SizedBox(height: 10,),
+
+
                                                   
                                                     ],
                                                   ),
-                                                )
+                                                ),
+
+                                                Wrap(
+                                                  alignment: WrapAlignment.center,
+                                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                                      child: PrettyShadowButton(
+
+                                                        label: "Images",
+                                                        onPressed: () {
+                                                          setState(() {
+
+                                                          });
+                                                        },
+                                                        icon: Icons.arrow_forward,
+                                                        shadowColor: Colors.cyanAccent,
+                                                      ),
+                                                    ),
+
+                                                    Padding(
+                                                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                                      child: PrettyShadowButton(
+
+                                                        label: "Link",
+                                                        onPressed: () {
+
+                                                          if(projects[index].link != null){
+                                                            launchUrl(Uri.parse(projects[index].link!));
+                                                          }
+                                                          setState(() {
+
+                                                          });
+
+
+                                                        },
+                                                        icon: Icons.arrow_forward,
+                                                        shadowColor: Colors.cyanAccent,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
                                                 ],
                                             ),
                                           ).animate().scale(duration: Duration(seconds: 1)))
